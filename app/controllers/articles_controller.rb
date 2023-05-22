@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
+  http_basic_authenticate_with name: "shivani", password: "123", except: [:index, :show]
     def index
       @articles = Article.all
     end
@@ -24,6 +24,7 @@ class ArticlesController < ApplicationController
 
     def edit
       @article = Article.find(params[:id])
+      # redirect_to @articles
     end
 
     def update
@@ -35,7 +36,7 @@ class ArticlesController < ApplicationController
         render :edit, status: :unprocessable_entity
       end
     end
-    http_basic_authenticate_with name: "dhh", password: "secret", only: :destroy
+    http_basic_authenticate_with name: "shivani", password: "123", only: :destroy
 
     def destroy
       @article = Article.find(params[:id])
@@ -46,9 +47,10 @@ class ArticlesController < ApplicationController
 
 
     private
-      def article_params
-        params.require(:article).permit(:title, :body)
-      end
+    def article_params
+      params.require(:article).permit(:title, :body, :status)
+    end
+
 
       private
       def comment_params
