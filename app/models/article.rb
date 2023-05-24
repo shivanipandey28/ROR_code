@@ -1,22 +1,27 @@
 class Article < ApplicationRecord
   include Visible
+  ##callback
+  before_validation :title_should_be_upcase
 
   has_many :comments, dependent: :destroy
 
 
+validates :title, presence: true
+validates :body, presence: true, length: {minimum: 10 }
 
-  validates :title, presence: true
-  validates :body, presence: true, length: {minimum: 10 }
+##callaback
+  after_validation :body_should_be_lower_case
+  private
+
+    def title_should_be_upcase
+   self.title = title.upcase
+    end
+    def body_should_be_lower_case
+      self.body = body.downcase
+    end
 
 
-    # before_validation :ensure_title_has_a_value
 
-    # private
-    #   def ensure_title_has_a_value
-    #     if title.nil?
-    #       self.title = title unless title.blank?
-    #     end
-    #   end
 end
 
 

@@ -1,4 +1,9 @@
 <h1>Articles</h1>
+<%= link_to "New Article", new_article_path %> <br> <br>
+<h2> Click here to add user details </h2>
+
+
+
 
 Our blog has <%= Article.public_count %> articles and counting!
 
@@ -12,4 +17,3 @@ Our blog has <%= Article.public_count %> articles and counting!
   <% end %>
 </ul>
 
-<%= link_to "New Article", new_article_path %>
