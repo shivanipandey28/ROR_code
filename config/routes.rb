@@ -12,13 +12,16 @@
 
 
 # end
-###comment
+###comment and article
 Rails.application.routes.draw do
-  root "articles#index"
-
-
-  resources :articles do
-    resources :comments
-    
+  ###comment and article
+  # root "articles#index"
+  # resources :articles do
+  #   resources :comments
+  # end
+  ###########################user and book
+  root "users#index"
+  resources :users do
+    resources :books
   end
 end

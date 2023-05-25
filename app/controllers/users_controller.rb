@@ -13,10 +13,10 @@ class UsersController < ApplicationController
       end
 
       def create
-        @user = User.new(article_params)
+        @user = User.new(user_params)
 
         if @user.save
-          redirect_to @article
+          redirect_to @user
         else
           render :new, status: :unprocessable_entity
           puts " there is  error to save "
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
       def update
         @user = User.find(params[:id])
 
-        if @user.update(article_params)
+        if @user.update(user_params)
           redirect_to @user
         else
           render :edit, status: :unprocessable_entity
@@ -49,7 +49,7 @@ class UsersController < ApplicationController
 
       private
       def user_params
-        params.require(:article).permit(:name, :mobile, :email)
+        params.require(:user).permit(:name, :age, :email)
       end
 
 

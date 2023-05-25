@@ -20,6 +20,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_24_105447) do
   end
 
   create_table "books", force: :cascade do |t|
+    t.string "book_name"
+    t.integer "book_number"
+    t.string "publish_at"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -36,8 +40,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_24_105447) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.integer "Mobile"
-    t.string "Email"
+    t.integer "age"
+    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

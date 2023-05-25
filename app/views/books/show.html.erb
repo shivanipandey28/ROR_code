@@ -1,0 +1,31 @@
+<h1><%= @User.name %></h1>
+
+<p><%= @User.age %></p>
+<p><%= @User.email %></p>
+
+<ul>
+  <li><%= link_to "Edit", edit_user_path(@user) %></li>
+  <li><%= link_to "Destroy", user_path(@user), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+</ul>
+
+<h2>Add New Book:</h2>
+<%= form_with model: [ @user, @user.books.build ] do |form| %>
+  <p>
+    <%= form.label :book_name%><br>
+    <%= form.text_field :book_name%>
+  </p>
+  <p>
+    <%= form.label :book_number%><br>
+    <%= form.text_field :book_number%>
+  </p>
+  <p>
+    <%= form.label :publish_at%><br>
+    <%= form.text_area :publish_at%>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
