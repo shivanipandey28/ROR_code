@@ -1,4 +1,6 @@
 # Rails.application.routes.draw do
+  #resources :accounts
+  #resources :suppliers
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -15,13 +17,13 @@
 ###comment and article
 Rails.application.routes.draw do
   ###comment and article
-  # root "articles#index"
-  # resources :articles do
-  #   resources :comments
-  # end
-  ###########################user and book
-  root "users#index"
-  resources :users do
-    resources :books
+  root "articles#index"
+  resources :articles do
+    resources :comments
   end
+  ###########################user and book
+  # root "users#index"
+  # resources :users do
+  #   resources :books
+  # end
 end
