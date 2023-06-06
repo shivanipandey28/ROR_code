@@ -1,12 +1,13 @@
 class Article < ApplicationRecord
   include Visible
+  has_many :comments, dependent: :destroy
   ##callback
   before_validation :title_should_be_upcase
 
-  has_many :comments, dependent: :destroy
 
 
-validates :title, presence: true
+
+validates :title, :email, presence: true
 validates :body, presence: true, length: {minimum: 10 }
 
 ##callaback

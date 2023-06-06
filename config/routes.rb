@@ -1,4 +1,5 @@
 # Rails.application.routes.draw do
+
   #resources :accounts
   #resources :suppliers
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -18,6 +19,7 @@
 Rails.application.routes.draw do
   ###comment and article
   root "articles#index"
+  resources :userrs
   resources :articles do
     resources :comments
   end

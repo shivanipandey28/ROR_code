@@ -5,7 +5,14 @@
     <% article.errors.full_messages_for(:title).each do |message| %>
       <div><%= message %></div>
     <% end %>
-  </div>
+  </div> <br>
+  <div>
+    <%= form.label :email%><br>
+    <%= form.text_field :email %><br>
+    <% article.errors.full_messages_for(:email).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div> <br>
 
   <div>
     <%= form.label :body %><br>
@@ -14,15 +21,18 @@
       <div><%= message %></div>
     <% end %>
   </div>
+<br>
 
-  <div>
-    <%= form.submit %>
-  </div>
-
-  <div>
+  <div> <br>
   <%= form.label :status %><br>
   <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
 </div>
+
+
+
+  <div> <br>
+    <%= form.submit %>
+  </div>
 
 
 
